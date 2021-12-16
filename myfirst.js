@@ -15,7 +15,7 @@ var main=document.querySelector('.main');
 var namev=document.querySelector('.name');
 var feels_like=document.querySelector('.feels_like');
 button.addEventListener('click',function(){
-  fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputvalue.value+'&APPID=36e5c0a69d3aeadcf9d1e1d5dfcbaadb')
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputvalue.value+'&APPID=36e5c0a69d3aeadcf9d1e1d5dfcbaadb')
   .then(response=> response.json())
   .then(data=>{
     var tempvalue=data['main']['temp'];
