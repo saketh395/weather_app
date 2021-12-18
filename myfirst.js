@@ -15,7 +15,7 @@ var main=document.querySelector('.main');
 var namev=document.querySelector('.name');
 var feels_like=document.querySelector('.feels_like');
 button.addEventListener('click',function(){
-  fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputvalue.value+'&APPID=36e5c0a69d3aeadcf9d1e1d5dfcbaadb')
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputvalue.value+'&APPID=36e5c0a69d3aeadcf9d1e1d5dfcbaadb&units=metric')
   .then(response=> response.json())
   .then(data=>{
     var tempvalue=data['main']['temp'];
@@ -37,12 +37,12 @@ button.addEventListener('click',function(){
     var namevalue=data['name'];
     var feels_likevalue=data['main']['feels_like'];
     
-    feels_like.innerHTML="<h2>Feels_Like(celcius)</h2><b>"+String((Number(feels_likevalue)-273.15).toPrecision(4))+'</b>';
+    feels_like.innerHTML="<h2>Feels_Like(celcius)</h2><b>"+feels_likevalue+'</b>';
     namev.innerHTML="<h2>Location</h2><b>"+namevalue+'</b>';
     main.innerHTML='<img src=\'http://openweathermap.org/img/wn/'+iconvalue+'@2x.png\'><h3>'+mainvalue+'</h3>';
-    temp.innerHTML="<h2>Temperature(celcius)</h2><b>"+String((Number(tempvalue)-273.15).toPrecision(4))+'</b>';
-    min_temp.innerHTML="<h2>Min Temperature(celcius)</h2><b>"+String((Number(min_tempvalue)-273.15).toPrecision(4))+'</b>';
-    max_temp.innerHTML="<h2>Max Temperature(celcius)</h2><b>"+String((Number(max_tempvalue)-273.15).toPrecision(4))+'</b>';
+    temp.innerHTML="<h2>Temperature(celcius)</h2><b>"+tempvalue+'</b>';
+    min_temp.innerHTML="<h2>Min Temperature(celcius)</h2><b>"+min_tempvalue+'</b>';
+    max_temp.innerHTML="<h2>Max Temperature(celcius)</h2><b>"+max_tempvalue+'</b>';
     pressure.innerHTML="<h2>Pressure(hPa)</h2><b>"+pressurevalue+'</b>';
     humidity.innerHTML="<h2>Humidity(%)</h2><b>"+humidityvalue+'</b>';
     wind_speed.innerHTML="<h2>Wind Speed(m/s)</h2><b>"+wind_speedvalue+'</b>';
